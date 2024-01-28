@@ -20,9 +20,9 @@ public class Main {
         return path + clDir;
     }
     public static void main(String[] args) {
-        String name = args[0]; // Получение пути к файлу tickets1.json из аргументов командной строки
+       // String name = args[0]; // Получение пути к файлу tickets1.json из аргументов командной строки
 
-        // String name = dir()+"tickets.json"; // Получение пути к файлу tickets.json
+         String name = dir()+"tickets.json"; // Получение пути к файлу tickets.json
         StringBuilder list;
         try {
             list = ReadFile.toImport(name); // Чтение файла tickets.json и запись его содержимого в объект StringBuilder
@@ -42,7 +42,7 @@ public class Main {
             e.getMessage();
         }
 
-        Map<String, List<Long>> airline = new TreeMap<>(); // Карта для хранения времени полета для каждого авиаперевозчика
+        Map<String, List<Long>> airline = new TreeMap<>(Comparator.reverseOrder()); // Карта для хранения времени полета для каждого авиаперевозчика
         List<Integer> prices = new ArrayList<>(); // Список для хранения цен полетов
 
         for (Ticket it : collect) {
